@@ -7,4 +7,4 @@ ENV VAULT_HOST=${VAULT_HOST}
 ENV VAULT_TOKEN=${VAULT_TOKEN}
 COPY sistema-monitoramento-server.jar sistema-monitoramento-server.jar
 ENTRYPOINT ["java","-jar","/sistema-monitoramento-server.jar"]
-EXPOSE 8080
+EXPOSE 9000
