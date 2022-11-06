@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  monitoramento-server:
+    image: guilhermejr/sistema-monitoramento-server
+    container_name: monitoramento-server
+    restart: always
+    ports:
+      - "9000:9000"
+
+networks:
+  default:
+    external:
+      name: rede
