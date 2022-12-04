@@ -18,7 +18,20 @@ spring:
     user:
       name: ${monitoramentoUser}
       password: ${monitoramentoPass}
-    
+
+sistema:
+  eureka:
+    host: ${eurekaServerHost}
+    login: ${eurekaServerUser}
+    senha: ${eurekaServerPass}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://${sistema.eureka.login}:${sistema.eureka.senha}@${sistema.eureka.host}:8761/eureka'
+  instance:
+    hostname: 'monitoramento-server'
+
 info:
   app:
     name: @project.name@
