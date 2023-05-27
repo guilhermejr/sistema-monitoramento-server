@@ -23,15 +23,15 @@ public class WebSecurityConfig {
         successHandler.setDefaultTargetUrl(adminContextPath + "/");
 
         http.authorizeRequests()
-                .antMatchers(adminContextPath + "/assets/**").permitAll()
-                .antMatchers(adminContextPath + "/login").permitAll()
+                .requestMatchers(adminContextPath + "/assets/**").permitAll()
+                .requestMatchers(adminContextPath + "/login").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage(adminContextPath + "/login").successHandler(successHandler)
                 .and().logout().logoutUrl(adminContextPath + "/logout")
                 .and().httpBasic()
                 .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                .ignoringAntMatchers(adminContextPath + "/instances", adminContextPath + "/actuator/**");
+                .ignoringRequestMatchers(adminContextPath + "/instances", adminContextPath + "/actuator/**");
         return http.build();
     }
 
